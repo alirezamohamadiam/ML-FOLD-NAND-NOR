@@ -106,7 +106,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Citation
 
-Mohammadi, A., Parandin, F., Karami, P., & Olyaee, S. (2025). Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and ML-FOLD Algorithm. To be published. Submitted for Photonics (ISSN 2304-6732)
+Mohammadi, A., Parandin, F., Karami, P., & Olyaee, S. (2025). Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and ML-FOLD Algorithm. under review in Photonics (ISSN 2304-6732)
 
 
 ## Contact
