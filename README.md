@@ -22,25 +22,6 @@ ml_fold_optimizer/
   - pandas
   - numpy
 
-## Installation
-
-1. **Clone the repository**:
-   ```bash
-   git clone https://github.com/yourusername/ml_fold_optimizer.git
-   cd ml_fold_optimizer
-   ```
-
-2. **Create a virtual environment** (optional but recommended):
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
-   ```
-
-3. **Install dependencies**:
-   ```bash
-   pip install -r requirements.txt
-   ```
-
 ## Usage
 
 1. **Ensure data files** are in the `data/` directory (`nor_data.csv` and `nand_data.csv`).
