@@ -2,6 +2,8 @@
 
 This repository contains a Python implementation of the **ML-FOLD** (Meta-Learning and Formula Optimization for Logic Design) algorithm for optimizing phase configurations in photonic crystal-based logic gates (NOR and NAND). The code processes datasets to calculate the `optimize_R` metric, classify configurations as **Optimal** or **Non-Optimal**, and provide statistical summaries.
 
+![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
+
 ## Project Structure
 
 ```
