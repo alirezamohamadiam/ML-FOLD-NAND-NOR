@@ -1,6 +1,32 @@
 # Enhanced Version of the ML-FOLD algorithm for Photonic Logic Gates
 
-This repository contains a Python implementation of the **ML-FOLD** (Meta-Learning and Formula Optimization for Logic Design) algorithm for optimizing phase configurations in photonic crystal-based logic gates (NOR and NAND). The code processes datasets to calculate the `optimize_R` metric, classify configurations as **Optimal** or **Non-Optimal**, and provide statistical summaries.
+Sure! Here's a detailed and clean `README.md` file you can use for your GitHub repository. It's tailored for your `MLFoldOptimizer` script, designed for optimizing photonic logic gates using machine learning metrics.
+
+---
+
+# 🔬 ML-FOLD Optimizer
+
+**ML-FOLD Optimizer** is a Python module designed to analyze and optimize phase configurations for photonic logic gates (NOR/NAND) based on their predicted output characteristics. It computes a custom metric called `LogicOptScore` to classify configurations as *Optimal* or *Non-Optimal*, using a threshold defined as a fraction of the maximum score.
+
+## 📌 Features
+
+* Supports **NOR** and **NAND** logic gate configurations.
+* Automatically computes:
+
+  * `Optimize_R`: Ratio-based metric to evaluate performance.
+  * `ZeroStateUniformity`: Measures uniformity in “0” state predictions.
+  * `LogicOptScore`: Composite metric to identify optimal configurations.
+* Filters out noisy data (NaNs, infinities).
+* Classifies configurations into `Optimal` or `Non-Optimal`.
+* Outputs summary statistics and classification breakdown.
+
+---
+
+## 🧠 Background
+
+Photonic logic gates, based on phase-encoded inputs and nanophotonic structures, require carefully tuned configurations to operate with high fidelity. The **ML-FOLD** algorithm provides a way to evaluate such configurations using machine learning-predicted outputs, optimizing them without relying solely on physical simulations.
+
+---
 
 ![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
 
