@@ -1,9 +1,5 @@
 # Enhanced Version of the ML-FOLD algorithm for Photonic Logic Gates
 
-Sure! Here's a detailed and clean `README.md` file you can use for your GitHub repository. It's tailored for your `MLFoldOptimizer` script, designed for optimizing photonic logic gates using machine learning metrics.
-
----
-
 # 🔬 ML-FOLD Optimizer
 
 **ML-FOLD Optimizer** is a Python module designed to analyze and optimize phase configurations for photonic logic gates (NOR/NAND) based on their predicted output characteristics. It computes a custom metric called `LogicOptScore` to classify configurations as *Optimal* or *Non-Optimal*, using a threshold defined as a fraction of the maximum score.
