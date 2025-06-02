@@ -62,23 +62,6 @@ ml_fold_optimizer/
    - A DataFrame with phase angles, output powers, `optimize_R`, and classifications.
    - Maximum `optimize_R`, threshold, and class counts.
 
-## Example Output
-
-For the NOR gate:
-```
-Processing NOR gate...
-
-Results:
-   phi_a  phi_b  preds_AB_0  ...  preds_AB_1  optimize_R classification
-0     45     45         0.6  ...        0.60    2.688172   Non-Optimal
-5     90     90         0.6  ...        0.18   75.757576      Optimal
-6     90    180         0.6  ...        0.08   91.463415      Optimal
-...
-
-Maximum optimize_R: 91.46341463414633
-Threshold: 73.17073170731707
-Class counts: {'Non-Optimal': 14, 'Optimal': 2}
-```
 
 ## Dataset Format
 
