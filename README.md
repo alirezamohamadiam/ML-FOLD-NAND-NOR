@@ -23,8 +23,8 @@
 Photonic logic gates, based on phase-encoded inputs and nanophotonic structures, require carefully tuned configurations to operate with high fidelity. The **ML-FOLD** algorithm provides a way to evaluate such configurations using machine learning-predicted outputs, optimizing them without relying solely on physical simulations.
 
 ---
+![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/25435cfc-1606-42b3-ab77-ade29c482551)
 
-![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
 
 ## Project Structure
 
