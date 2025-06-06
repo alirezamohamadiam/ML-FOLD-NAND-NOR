@@ -1,30 +1,8 @@
-# Enhanced Version of the ML-FOLD algorithm for Photonic Logic Gates
+# ML-FOLD Optimizer for Photonic Logic Gates
 
-# 🔬 ML-FOLD Optimizer
+This repository contains a Python implementation of the **ML-FOLD** (Meta-Learning and Formula Optimization for Logic Design) algorithm for optimizing phase configurations in photonic crystal-based logic gates (NOR and NAND). The code processes datasets to calculate the `optimize_R` metric, classify configurations as **Optimal** or **Non-Optimal**, and provide statistical summaries.
 
-**ML-FOLD Optimizer** is a Python module designed to analyze and optimize phase configurations for photonic logic gates (NOR/NAND) based on their predicted output characteristics. It computes a custom metric called `LogicOptScore` to classify configurations as *Optimal* or *Non-Optimal*, using a threshold defined as a fraction of the maximum score.
-
-## 📌 Features
-
-* Supports **NOR** and **NAND** logic gate configurations.
-* Automatically computes:
-
-  * `Optimize_R`: Ratio-based metric to evaluate performance.
-  * `ZeroStateUniformity`: Measures uniformity in “0” state predictions.
-  * `LogicOptScore`: Composite metric to identify optimal configurations.
-* Filters out noisy data (NaNs, infinities).
-* Classifies configurations into `Optimal` or `Non-Optimal`.
-* Outputs summary statistics and classification breakdown.
-
----
-
-## 🧠 Background
-
-Photonic logic gates, based on phase-encoded inputs and nanophotonic structures, require carefully tuned configurations to operate with high fidelity. The **ML-FOLD** algorithm provides a way to evaluate such configurations using machine learning-predicted outputs, optimizing them without relying solely on physical simulations.
-
----
-![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/25435cfc-1606-42b3-ab77-ade29c482551)
-
+![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
 
 ## Project Structure
 
@@ -58,6 +36,23 @@ ml_fold_optimizer/
    - A DataFrame with phase angles, output powers, `optimize_R`, and classifications.
    - Maximum `optimize_R`, threshold, and class counts.
 
+## Example Output
+
+For the NOR gate:
+```
+Processing NOR gate...
+
+Results:
+   phi_a  phi_b  preds_AB_0  ...  preds_AB_1  optimize_R classification
+0     45     45         0.6  ...        0.60    2.688172   Non-Optimal
+5     90     90         0.6  ...        0.18   75.757576      Optimal
+6     90    180         0.6  ...        0.08   91.463415      Optimal
+...
+
+Maximum optimize_R: 91.46341463414633
+Threshold: 73.17073170731707
+Class counts: {'Non-Optimal': 14, 'Optimal': 2}
+```
 
 ## Dataset Format
 
@@ -94,8 +89,7 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Citation
 
-Mohammadi, A., Parandin, F., Karami, P., & Olyaee, S. (2025). Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and the ML-FOLD Algorithm. Photonics, 12(6), 576. https://doi.org/10.3390/photonics12060576
-
+Mohammadi, A., Parandin, F., Karami, P., & Olyaee, S. (2025). Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and ML-FOLD Algorithm. under review in Photonics (ISSN 2304-6732)
 
 
 ## Contact
