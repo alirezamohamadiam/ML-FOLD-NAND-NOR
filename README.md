@@ -1,97 +1,198 @@
-# ML-FOLD Optimizer for Photonic Logic Gates
+# 🔬 ML-FOLD Optimizer for Photonic Logic Gates
+### Meta-Learning and Formula Optimization for Logic Design
 
-This repository contains a Python implementation of the **ML-FOLD** (Meta-Learning and Formula Optimization for Logic Design) algorithm for optimizing phase configurations in photonic crystal-based logic gates (NOR and NAND). The code processes datasets to calculate the `optimize_R` metric, classify configurations as **Optimal** or **Non-Optimal**, and provide statistical summaries.
+<div align="center">
 
-![ChatGPT Image May 19, 2025, 02_00_02 PM](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
+[![DOI](https://img.shields.io/badge/DOI-10.3390%2Fphotonics12060576-blue.svg)](https://doi.org/10.3390/photonics12060576)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![Photonics](https://img.shields.io/badge/Journal-Photonics-green.svg)](https://doi.org/10.3390/photonics12060576)
 
-## Project Structure
+*Official Implementation - Published in Photonics, 2025*
+
+**Dataset Included** | NOR & NAND Gate Optimization
+
+[**Paper**](https://doi.org/10.3390/photonics12060576) | [**Contact**](mailto:alirezamohamadi@iau.ac.ir)
+
+</div>
+
+---
+
+
+## 🔬 Overview
+
+This repository contains the Python implementation of the **ML-FOLD** (Meta-Learning and Formula Optimization for Logic Design) algorithm for optimizing phase configurations in photonic crystal-based logic gates. The algorithm processes datasets to calculate the `optimize_R` metric, classify configurations as **Optimal** or **Non-Optimal**, and provide comprehensive statistical summaries.
+
+**Supported Logic Gates:**
+- **NOR Gate** - Photonic crystal-based NOR logic gate optimization
+- **NAND Gate** - Photonic crystal-based NAND logic gate optimization
+
+<div align="center">
+
+![ML-FOLD Algorithm](https://github.com/user-attachments/assets/03fc8bef-cfe0-49c6-be32-c706ef412f70)
+
+*ML-FOLD optimization framework for photonic logic gates*
+
+</div>
+
+---
+
+## 🚀 Quick Start
+
+### Step 1: Clone Repository
+```bash
+git clone https://github.com/alirezamohamadiam/ML-FOLD-NAND-NOR.git
+cd ML-FOLD-NAND-NOR
+```
+
+### Step 2: Install Requirements
+```bash
+pip install -r requirements.txt
+```
+> **Note:** Python 3.7+ is required
+
+### Step 3: Run Optimizer
+```bash
+python src/ml_fold_optimizer.py
+```
+
+That's it! The script will automatically process both NOR and NAND datasets included in the repository.
+
+---
+
+## 💻 Usage Examples
+
+### Basic Usage
+Process both NOR and NAND gate datasets with default settings:
+```bash
+python src/ml_fold_optimizer.py
+```
+
+### Custom Threshold
+Modify the threshold fraction in the script (default is 80%):
+```python
+# In ml_fold_optimizer.py
+threshold_fraction = 0.80  # Adjust between 0.0 and 1.0
+```
+---
+
+## 📊 Dataset Information
+
+### Included Datasets
+
+This repository includes the **complete datasets** used in the published paper:
+
+| File | Description | Location |
+|:-----|:------------|:---------|
+| `nor_data.csv` | NOR gate phase configurations and output powers | `data/nor_data.csv` |
+| `nand_data.csv` | NAND gate phase configurations and output powers | `data/nand_data.csv` |
+
+### Dataset Format
+
+Each CSV file contains the following columns:
+
+| Column | Description | Unit |
+|:-------|:------------|:-----|
+| `phi_a` | Phase angle A | Degrees (°) |
+| `phi_b` | Phase angle B | Degrees (°) |
+| `preds_AB_0` | Normalized output power for input state (0,0) | - |
+| `preds_A_1B_0` | Normalized output power for input state (1,0) | - |
+| `preds_A_0B_1` | Normalized output power for input state (0,1) | - |
+| `preds_AB_1` | Normalized output power for input state (1,1) | - |
+
+### Example Data Row (NOR Gate)
+```csv
+phi_a,phi_b,preds_AB_0,preds_A_1B_0,preds_A_0B_1,preds_AB_1
+45,45,0.6,0.6,0.62,0.6
+90,90,0.6,0.6,0.62,0.18
+90,180,0.6,0.6,0.62,0.08
+```
+
+---
+
+## 🧮 Methodology
+
+The ML-FOLD algorithm follows a systematic optimization process:
+
+### 1. **Data Loading**
+Reads phase configuration data from CSV files for both NOR and NAND gates.
+
+### 2. **Optimization Metric Calculation**
+
+**For NOR Gate:**
+```
+optimize_R = preds_AB_0 / (preds_A_1B_0 × preds_A_0B_1 × preds_AB_1)
+```
+
+**For NAND Gate:**
+```
+optimize_R = (preds_AB_0 × preds_A_1B_0 × preds_A_0B_1) / preds_AB_1
+```
+
+### 3. **Adaptive Thresholding**
+- Calculates maximum `optimize_R` across all configurations
+- Sets threshold at 80% of maximum value (configurable)
+
+### 4. **Configuration Classification**
+- **Optimal**: `optimize_R ≥ threshold`
+- **Non-Optimal**: `optimize_R < threshold`
+
+### 5. **Statistical Analysis**
+Outputs comprehensive results including:
+- Full configuration table with classifications
+- Maximum `optimize_R` value
+- Applied threshold value
+- Distribution of Optimal vs Non-Optimal configurations
+
+---
+
+## 📁 Project Structure
 
 ```
 ml_fold_optimizer/
 ├── data/
-│   ├── nor_data.csv        # NOR gate phase configuration data
-│   ├── nand_data.csv       # NAND gate phase configuration data
+│   ├── nor_data.csv          # NOR gate dataset (included)
+│   └── nand_data.csv         # NAND gate dataset (included)
 ├── src/
-│   ├── ml_fold_optimizer.py # Main optimization script
-├── README.md               # Project documentation
-├── requirements.txt        # Python dependencies
+│   └── ml_fold_optimizer.py  # Main optimization script
+├── requirements.txt          # Python dependencies
+├── README.md                 # Project documentation (this file)
+└── LICENSE                   # MIT License
 ```
 
-## Prerequisites
+---
 
-- Python 3.8+
-- Required packages (listed in `requirements.txt`):
-  - pandas
-  - numpy
+## 📚 Citation
 
-## Usage
+If you use this code or dataset in your research, please cite our paper:
 
-1. **Ensure data files** are in the `data/` directory (`nor_data.csv` and `nand_data.csv`).
-2. **Run the script**:
-   ```bash
-   python src/ml_fold_optimizer.py
-   ```
-
-   The script processes both NOR and NAND datasets, calculates `optimize_R`, applies an 80% threshold of the maximum `optimize_R`, and classifies configurations as **Optimal** or **Non-Optimal**. Results include:
-   - A DataFrame with phase angles, output powers, `optimize_R`, and classifications.
-   - Maximum `optimize_R`, threshold, and class counts.
-
-## Example Output
-
-For the NOR gate:
-```
-Processing NOR gate...
-
-Results:
-   phi_a  phi_b  preds_AB_0  ...  preds_AB_1  optimize_R classification
-0     45     45         0.6  ...        0.60    2.688172   Non-Optimal
-5     90     90         0.6  ...        0.18   75.757576      Optimal
-6     90    180         0.6  ...        0.08   91.463415      Optimal
-...
-
-Maximum optimize_R: 91.46341463414633
-Threshold: 73.17073170731707
-Class counts: {'Non-Optimal': 14, 'Optimal': 2}
+```bibtex
+@inproceedings{mohammadi2025design,
+  title={Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and the ML-FOLD Algorithm},
+  author={Mohammadi, Alireza and Parandin, Fariborz and Karami, Pouya and Olyaee, Saeed},
+  booktitle={Photonics},
+  volume={12},
+  number={6},
+  pages={576},
+  year={2025},
+  organization={MDPI}
+}
 ```
 
-## Dataset Format
-
-Each CSV file (`nor_data.csv`, `nand_data.csv`) contains:
-- Columns: `phi_a`, `phi_b` (phase angles in degrees), `preds_AB_0`, `preds_A_1B_0`, `preds_A_0B_1`, `preds_AB_1` (normalized output powers for input states).
-- Example row for NOR:
-  ```
-  45,45,0.6,0.6,0.62,0.6
-  ```
-
-## Methodology
-
-1. **Load Data**: Reads phase configuration data from CSV files.
-2. **Calculate optimize_R**:
-   - For NOR: `optimize_R = preds_AB_0 / (preds_A_1B_0 * preds_A_0B_1 * preds_AB_1)`
-   - For NAND: `optimize_R = (preds_AB_0 * preds_A_1B_0 * preds_A_0B_1) / preds_AB_1`
-3. **Set Threshold**: 80% of the maximum `optimize_R` (configurable).
-4. **Classify Configurations**: Labels configurations as **Optimal** (≥ threshold) or **Non-Optimal** (< threshold).
-5. **Output Results**: Displays DataFrame and statistics.
-
-## Notes
-
-- The threshold is a visualization aid and can be adjusted via the `threshold_fraction` parameter.
-- The code includes error handling for missing files, invalid gate types, and malformed data.
-- Future enhancements may include support for additional gate types or alternative threshold methods.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request with your suggestions or improvements.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
-
-## Citation
-
+**Plain Text Citation:**
+```
 Mohammadi, A., Parandin, F., Karami, P., & Olyaee, S. (2025). Design and Optimization of Optical NAND and NOR Gates Using Photonic Crystals and the ML-FOLD Algorithm. Photonics, 12(6), 576. https://doi.org/10.3390/photonics12060576
+```
+---
 
 
-## Contact
+<div align="center">
 
-For questions or feedback, please contact [alirezamohamadi@iau.ac.ir](mailto:alirezamohamadi@iau.ac.ir).
+**⭐ If you find this work useful, please consider giving it a star! ⭐**
+
+Made with ❤️ for Photonic Computing Research
+
+This project is licensed under the MIT License 
+
+
+</div>
