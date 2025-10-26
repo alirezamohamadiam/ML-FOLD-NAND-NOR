@@ -81,53 +81,7 @@ Each CSV file contains the following columns:
 | `preds_A_1B_0` | Normalized output power for input state (1,0) | - |
 | `preds_A_0B_1` | Normalized output power for input state (0,1) | - |
 | `preds_AB_1` | Normalized output power for input state (1,1) | - |
-
-### Example Data Row (NOR Gate)
-```csv
-phi_a,phi_b,preds_AB_0,preds_A_1B_0,preds_A_0B_1,preds_AB_1
-45,45,0.6,0.6,0.62,0.6
-90,90,0.6,0.6,0.62,0.18
-90,180,0.6,0.6,0.62,0.08
-```
-
 ---
-
-## 🧮 Methodology
-
-The ML-FOLD algorithm follows a systematic optimization process:
-
-### 1. **Data Loading**
-Reads phase configuration data from CSV files for both NOR and NAND gates.
-
-### 2. **Optimization Metric Calculation**
-
-**For NOR Gate:**
-```
-optimize_R = preds_AB_0 / (preds_A_1B_0 × preds_A_0B_1 × preds_AB_1)
-```
-
-**For NAND Gate:**
-```
-optimize_R = (preds_AB_0 × preds_A_1B_0 × preds_A_0B_1) / preds_AB_1
-```
-
-### 3. **Adaptive Thresholding**
-- Calculates maximum `optimize_R` across all configurations
-- Sets threshold at 80% of maximum value (configurable)
-
-### 4. **Configuration Classification**
-- **Optimal**: `optimize_R ≥ threshold`
-- **Non-Optimal**: `optimize_R < threshold`
-
-### 5. **Statistical Analysis**
-Outputs comprehensive results including:
-- Full configuration table with classifications
-- Maximum `optimize_R` value
-- Applied threshold value
-- Distribution of Optimal vs Non-Optimal configurations
-
----
-
 ## 📁 Project Structure
 
 ```
