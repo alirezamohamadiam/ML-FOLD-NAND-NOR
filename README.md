@@ -1,6 +1,4 @@
 # 🔬 ML-FOLD Optimizer for Photonic Logic Gates
-### Meta-Learning and Formula Optimization for Logic Design
-
 <div align="center">
 
 [![DOI](https://img.shields.io/badge/DOI-10.3390%2Fphotonics12060576-blue.svg)](https://doi.org/10.3390/photonics12060576)
