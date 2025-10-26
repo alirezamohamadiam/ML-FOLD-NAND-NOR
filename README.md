@@ -58,24 +58,6 @@ python src/ml_fold_optimizer.py
 
 That's it! The script will automatically process both NOR and NAND datasets included in the repository.
 
----
-
-## 💻 Usage Examples
-
-### Basic Usage
-Process both NOR and NAND gate datasets with default settings:
-```bash
-python src/ml_fold_optimizer.py
-```
-
-### Custom Threshold
-Modify the threshold fraction in the script (default is 80%):
-```python
-# In ml_fold_optimizer.py
-threshold_fraction = 0.80  # Adjust between 0.0 and 1.0
-```
----
-
 ## 📊 Dataset Information
 
 ### Included Datasets
